@@ -8,11 +8,23 @@
 import SwiftUI
 
 struct SelectionIndicatorView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+	var selectionRect: CGRect
+
+	var body: some View {
+		Rectangle()
+			.stroke(Color.secondary, lineWidth: 0.5)
+			.fill(Color.secondary.opacity(0.15))
+			.frame(
+				width: selectionRect.width,
+				height: selectionRect.height
+			)
+			.offset(
+				x: selectionRect.minX,
+				y: selectionRect.minY
+			)
+	}
 }
 
-#Preview {
-    SelectionIndicatorView()
-}
+//#Preview {
+//	SelectionIndicatorView()
+//}

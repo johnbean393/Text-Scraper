@@ -9,7 +9,21 @@ import SwiftUI
 
 struct AnnotationWindowControls: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		HStack {
+			OverlayExitButton()
+			AssistiveReadToggle()
+		}
+		.padding(5)
+		.background {
+			Capsule()
+				.stroke(Color.secondary, lineWidth: 5)
+				.fill(
+					Color(
+						nsColor: NSColor.windowBackgroundColor
+					)
+				)
+		}
+		.padding()
     }
 }
 

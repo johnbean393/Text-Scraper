@@ -34,17 +34,34 @@ public struct CapturedText: Identifiable, Equatable {
 			height: unscaledRect.height * screen.frame.height
 		)
 		self.rect = scaledRect
-		// Crop image to rect, then find dominant color
-		let cropRect: CGRect = CGRect(
+		// Crop image to 2 rects, then find dominant color from larger one
+		// For image
+		let cropRectImage: CGRect = CGRect(
 			x: unscaledRect.minX * screen.realFrame.width,
 			y: (1 - unscaledRect.minY - unscaledRect.height) * screen.realFrame.height,
 			width: unscaledRect.width * screen.realFrame.width,
 			height: unscaledRect.height * screen.realFrame.height
 		)
 		if let croppedImage: CGImage = cgImage.cropping(
-			to: cropRect
+			to: cropRectImage
 		) {
 			self.cgImage = croppedImage
+		} else {
+			print("Failed to crop image")
+		}
+		// For color
+		let cropRectColor: CGRect = CGRect(
+			x: min(unscaledRect.minX * screen.realFrame.width - 4, 0),
+			y: min(
+				(1 - unscaledRect.minY - unscaledRect.height) * screen.realFrame.height - 4,
+				0
+			),
+			width: unscaledRect.width * screen.realFrame.width + 8,
+			height: unscaledRect.height * screen.realFrame.height + 8
+		)
+		if let croppedImage: CGImage = cgImage.cropping(
+			to: cropRectColor
+		) {
 			if let dominantColor: CGColor = try? DominantColors
 				.dominantColors(
 					image: croppedImage,

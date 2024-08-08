@@ -12,6 +12,12 @@ struct Text_ScraperApp: App {
 	@NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
 	var body: some Scene {
+		MenuBarExtra {
+			MenuBarView()
+		} label: {
+			Label("Text Scraper", systemImage: "text.viewfinder")
+		}
+		
 		Settings {
 			SettingsView()
 		}

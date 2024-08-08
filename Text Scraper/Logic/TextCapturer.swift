@@ -9,7 +9,6 @@ import Foundation
 import ScreenCaptureKit
 import SwiftUI
 import Vision
-import Translation
 
 @MainActor
 public class TextCapturer: ObservableObject {
@@ -68,8 +67,29 @@ public class TextCapturer: ObservableObject {
 		textRequest.automaticallyDetectsLanguage = true
 		textRequest.usesLanguageCorrection = true
 		// Set langs
-		let langs: [Locale.Language] = await LanguageAvailability().supportedLanguages
-		textRequest.recognitionLanguages = langs.map {
+		let langs: [Locale.Language] = [
+			Locale.Language(identifier: "en"),
+			Locale.Language(identifier: "zh"),
+			Locale.Language(identifier: "hi"),
+			Locale.Language(identifier: "es"),
+			Locale.Language(identifier: "fr"),
+			Locale.Language(identifier: "ar"),
+			Locale.Language(identifier: "bn"),
+			Locale.Language(identifier: "ru"),
+			Locale.Language(identifier: "pt"),
+			Locale.Language(identifier: "ur"),
+			Locale.Language(identifier: "id"),
+			Locale.Language(identifier: "de"),
+			Locale.Language(identifier: "ja"),
+			Locale.Language(identifier: "tr"),
+			Locale.Language(identifier: "vi"),
+			Locale.Language(identifier: "th"),
+			Locale.Language(identifier: "la")
+		]
+		let uniqueLangs: [Locale.Language] = (langs + Locale.Language.systemLanguages).unique(
+			{ $0.minimalIdentifier == $1.minimalIdentifier }
+		)
+		textRequest.recognitionLanguages = uniqueLangs.map {
 			$0.minimalIdentifier
 		}
 		// Run request

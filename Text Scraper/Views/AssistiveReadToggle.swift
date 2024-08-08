@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct AssistiveReadToggle: View {
+	
+	@AppStorage("assistiveReadEnabled") var assistiveReadEnabled: Bool = false
+	
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		Toggle(isOn: $assistiveReadEnabled) {
+			Label("Assistive Read", systemImage: "book.pages")
+		}
+		.toggleStyle(.switch)
     }
+	
 }
 
 #Preview {

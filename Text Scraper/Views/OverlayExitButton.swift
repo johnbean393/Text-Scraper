@@ -17,9 +17,10 @@ struct OverlayExitButton: View {
 		} label: {
 			Image(systemName: "xmark.circle.fill")
 				.font(.largeTitle)
+				.foregroundStyle(Color.secondary)
 		}
 		.buttonStyle(PlainButtonStyle())
-		.scaleEffect(isHovering ? 1.2 : 1.0)
+		.scaleEffect(isHovering ? 1.1 : 1.0)
 		.onHover { isHovering in
 			withAnimation(.linear(duration: 0.2)) {
 				self.isHovering = isHovering

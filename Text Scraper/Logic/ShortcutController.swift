@@ -17,7 +17,7 @@ public class ShortcutController {
 			.getShortcut(for: .showAnnotations) == nil {
 			// Set to "Function + t"
 			KeyboardShortcuts.setShortcut(
-				.init(.t, modifiers: [.command, .control]),
+				.init(.c, modifiers: [.command, .control]),
 				for: .showAnnotations
 			)
 		}
