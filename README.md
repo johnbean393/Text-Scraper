@@ -28,3 +28,4 @@ This project would not be possible without the hard work of:
 
 - DemDmitriev for [DominantColors](https://github.com/DenDmitriev/DominantColors)
 - sindresorhus for [KeyboardShortcuts](https://github.com/sindresorhus/KeyboardShortcuts) and [LaunchAtLogin-Modern](https://github.com/sindresorhus/LaunchAtLogin-Modern)
+- Apple for [Predictive Code Completion](https://devimages-cdn.apple.com/wwdc-services/images/C03E6E6D-A32A-41D0-9E50-C3C6059820AA/guides-76105412-ED4C-4D9D-AAA5-E039F7FE142B/WWDC24-Developer-Tools.pdf)
