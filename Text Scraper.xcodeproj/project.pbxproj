@@ -12,11 +12,13 @@
 		209044972C642CE700F47B29 /* ExtensionKit in Frameworks */ = {isa = PBXBuildFile; productRef = 209044962C642CE700F47B29 /* ExtensionKit */; };
 		209044A02C649DAE00F47B29 /* DominantColors in Frameworks */ = {isa = PBXBuildFile; productRef = 2090449F2C649DAE00F47B29 /* DominantColors */; };
 		2098BB152C65871C00B0222F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2098BB142C65871C00B0222F /* README.md */; };
+		2098BBC52C658AE600B0222F /* demoScreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 2098BBC42C658AE600B0222F /* demoScreenshot.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		20472F852C63CDE700D58B4C /* Text Scraper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Text Scraper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2098BB142C65871C00B0222F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2098BBC42C658AE600B0222F /* demoScreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demoScreenshot.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -52,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				2098BB142C65871C00B0222F /* README.md */,
+				2098BBC42C658AE600B0222F /* demoScreenshot.png */,
 				20472F872C63CDE700D58B4C /* Text Scraper */,
 				20472F862C63CDE700D58B4C /* Products */,
 			);
@@ -138,6 +141,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2098BBC52C658AE600B0222F /* demoScreenshot.png in Resources */,
 				2098BB152C65871C00B0222F /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
