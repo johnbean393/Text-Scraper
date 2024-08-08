@@ -1,0 +1,42 @@
+{
+  "originHash" : "2f366ded96206fa24c24031f1c87a367ee49eae0e3361e1a7d108532373d7700",
+  "pins" : [
+    {
+      "identity" : "dominantcolors",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/DenDmitriev/DominantColors",
+      "state" : {
+        "revision" : "38e28c1eda5de3d101e1bb2bf5ca737d6f66b5d7",
+        "version" : "1.2.0"
+      }
+    },
+    {
+      "identity" : "extensionkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnbean393/ExtensionKit",
+      "state" : {
+        "branch" : "main",
+        "revision" : "b7dc5839ec39dd1deef59b54798a7da1bed31557"
+      }
+    },
+    {
+      "identity" : "keyboardshortcuts",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sindresorhus/KeyboardShortcuts",
+      "state" : {
+        "revision" : "2e5f15581fefb821d4b366e57d817be8bf12aa58",
+        "version" : "2.0.1"
+      }
+    },
+    {
+      "identity" : "launchatlogin-modern",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sindresorhus/LaunchAtLogin-Modern",
+      "state" : {
+        "branch" : "main",
+        "revision" : "a04ec1c363be3627734f6dad757d82f5d4fa8fcc"
+      }
+    }
+  ],
+  "version" : 3
+}
