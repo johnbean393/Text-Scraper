@@ -2,7 +2,7 @@
 
 A macOS app that can surface text on your displays and allow easy copying. Useful in apps and websites where text isn't copyable.
 
-- Use the default shortcut (􀆔 + 􀆍 + C) to extract text!
+- Use the default shortcut (Cmd + Ctrl + C) to extract text!
 - Select and copy with auto groupings
 
 ## Installation
