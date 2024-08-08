@@ -53,11 +53,11 @@ struct AnnotatedTextView: View {
 
 	var textOverlay: some View {
 		RoundedRectangle(
-			cornerRadius: capturedText.rect.height * 0.15
+			cornerRadius: capturedText.rect.height * 0.20
 		)
 		.stroke(
 			Color.accentColor,
-			lineWidth: 3
+			lineWidth: 1
 		)
 		.fill(capturedText.backgroundColor)
 		.frame(
@@ -97,14 +97,14 @@ struct AnnotatedTextView: View {
 	var assistiveReadImage: some View {
 		ZStack {
 			RoundedRectangle(
-				cornerRadius: capturedText.rect.height * 0.15
+				cornerRadius: capturedText.rect.height * 0.20
 			)
 			.fill(Color.accentColor)
 			.frame(
-				minWidth: minWidth + 4,
-				maxWidth: capturedText.rect.width + 4,
-				minHeight: minHeight + 4,
-				maxHeight: capturedText.rect.height + 4
+				minWidth: minWidth + 2,
+				maxWidth: capturedText.rect.width + 2,
+				minHeight: minHeight + 2,
+				maxHeight: capturedText.rect.height + 2
 			)
 			Group {
 				if capturedText.cgImage != nil {
@@ -126,7 +126,7 @@ struct AnnotatedTextView: View {
 			)
 			.clipShape(
 				RoundedRectangle(
-					cornerRadius: capturedText.rect.height * 0.15
+					cornerRadius: capturedText.rect.height * 0.20
 				)
 			)
 		}
