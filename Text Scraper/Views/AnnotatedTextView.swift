@@ -20,7 +20,22 @@ struct AnnotatedTextView: View {
 		self._selectionRect = selectionRect
 		self.minHeight = minHeight
 		self.minWidth = minWidth
+		let startAngle: Angle = .degrees(Double.random(in: 0...360))
+		self.startAngle = startAngle
+		self.borderStyle = Self.getGradient(angle: startAngle)
 	}
+
+	/// Property denoting the border style's start angle
+	var startAngle: Angle
+	/// State property denoting gradient width
+	@State private var gradientWidth: CGFloat = 0
+	/// State property denoting whether accentColor is shown
+	@State private var showAccentColor: Bool = false
+	/// State property denoting whether text overlay is shown
+	@State private var showTextOverlay: Bool = false
+	
+	/// State property denoting the border style
+	@State private var borderStyle: AngularGradient
 
 	/// Binding to property storing captured text, its image and its position
 	@Binding var capturedText: CapturedText
@@ -49,22 +64,31 @@ struct AnnotatedTextView: View {
 			// Glow if selected
 			view.glow(color: Color.white, radius: 3, blurred: false)
 		}
+		.onAppear(perform: animateAppear)
 	}
 
 	var textOverlay: some View {
 		RoundedRectangle(
 			cornerRadius: capturedText.rect.height * 0.20
 		)
-		.stroke(
-			Color.accentColor,
-			lineWidth: 1
+		.glow(
+			fill: borderStyle,
+			lineWidth: gradientWidth,
+			blurRadius: gradientWidth
 		)
-		.fill(capturedText.backgroundColor)
+		.background {
+			capturedText.backgroundColor
+				.clipShape(
+					RoundedRectangle(
+						cornerRadius: capturedText.rect.height * 0.20
+					)
+				)
+		}
 		.frame(
 			minWidth: minWidth,
-			maxWidth: capturedText.rect.width,
+			maxWidth: capturedText.rect.width - 1.5,
 			minHeight: minHeight,
-			maxHeight: capturedText.rect.height
+			maxHeight: capturedText.rect.height - 1.5
 		)
 		.overlay(alignment: .center) {
 			text
@@ -76,7 +100,7 @@ struct AnnotatedTextView: View {
 
 	var copyButton: some View {
 		Button {
-			let pasteboard: NSPasteboard = NSPasteboard.general
+			let pasteboard = NSPasteboard.general
 			pasteboard.declareTypes([.string], owner: nil)
 			pasteboard.setString(capturedText.text, forType: .string)
 		} label: {
@@ -92,6 +116,7 @@ struct AnnotatedTextView: View {
 			.minimumScaleFactor(0.2)
 			.lineLimit(1)
 			.textSelection(.enabled)
+			.opacity(showTextOverlay ? 1.0 : 0.0)
 	}
 
 	var assistiveReadImage: some View {
@@ -99,7 +124,7 @@ struct AnnotatedTextView: View {
 			RoundedRectangle(
 				cornerRadius: capturedText.rect.height * 0.20
 			)
-			.fill(Color.accentColor)
+			.foregroundStyle(borderStyle)
 			.frame(
 				minWidth: minWidth + 2,
 				maxWidth: capturedText.rect.width + 2,
@@ -131,6 +156,46 @@ struct AnnotatedTextView: View {
 			)
 		}
 	}
+
+	private func animateAppear() {
+		// Animate appearance
+		let phase1 = 1.0
+		let phase2 = 0.5
+		withAnimation(.easeOut(duration: phase1)) {
+			gradientWidth = 5
+			showTextOverlay = true
+			borderStyle = Self.getGradient(
+				angle: Angle(degrees: startAngle.degrees + 240)
+			)
+		}
+		DispatchQueue.main.asyncAfter(deadline: .now() + phase1) {
+			withAnimation(.easeIn(duration: phase2)) {
+				gradientWidth = 1.0
+				borderStyle = AngularGradient(
+					colors: [Color.accentColor],
+					center: .center,
+					angle: startAngle
+				)
+			}
+		}
+	}
+	
+	private static func getGradient(angle: Angle) -> AngularGradient {
+		return AngularGradient(
+			stops: [
+				.init(color: .white, location: 0.0),
+				.init(color: .cyan, location: 0.2),
+				.init(color: .blue, location: 0.3),
+				.init(color: .purple, location: 0.4),
+				.init(color: .pink, location: 0.6),
+				.init(color: .yellow, location: 0.8),
+				.init(color: .white, location: 1.0),
+			],
+			center: .center,
+			angle: angle
+		)
+	}
+	
 }
 
 // #Preview {

@@ -60,3 +60,9 @@ public extension String {
 	}
 	
 }
+
+public extension String {
+	subscript(idx: Int) -> String {
+		String(self[index(startIndex, offsetBy: idx)])
+	}
+}

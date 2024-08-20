@@ -46,11 +46,26 @@ struct ContentView: View {
 				AnnotationWindowControls()
 			}
 			.overlay(alignment: .topLeading) {
-				SelectionIndicatorView(selectionRect: selectionRect)
+				SelectionIndicatorView(
+					selectionRect: selectionRect
+				)
 			}
 			.gesture(dragGesture)
 			.sheet(isPresented: $showActionsSheet) {
-				SelectionSheetView(isPresented: $showActionsSheet, selectedTexts: selectedTexts)
+				SelectionSheetView(
+					isPresented: $showActionsSheet,
+					selectedTexts: selectedTexts
+				)
+			}
+			.onChange(of: selectionRect) {
+				// Extend show time
+				AppDelegate.shared.annotationsController
+					.setAutoDismissIfNeeded()
+			}
+			.onChange(of: NSEvent.mouseLocation) {
+				// Extend show time
+				AppDelegate.shared.annotationsController
+					.setAutoDismissIfNeeded()
 			}
 			.environmentObject(textCapturer)
 	}
@@ -61,12 +76,10 @@ struct ContentView: View {
 				// Reset selection
 				self.selectedTexts = []
 				// Record change
-				withAnimation(.linear) {
-					self.selectionRect = CGRect(
-						origin: proxy.startLocation,
-						size: proxy.translation
-					)
-				}
+				self.selectionRect = CGRect(
+					origin: proxy.startLocation,
+					size: proxy.translation
+				)
 			}
 			.onEnded { _ in
 				// Show sheet if applicable

@@ -19,30 +19,32 @@ extension Array {
 	}
 }
 
-extension Array where Element == CapturedText  {
-	
+extension Array where Element == CapturedText {
+	/// Function that returns a range of CGFloat specifying the range of acceptable vertical positionings
 	func yTolarance() -> ClosedRange<CGFloat> {
-		let sortedY: [CGFloat] = self.map({ $0.rect.midY }).sorted()
+		let sortedY: [CGFloat] = self.map { $0.rect.midY }.sorted()
 		guard let minY: CGFloat = sortedY.first else { return 0...0 }
 		guard let maxY: CGFloat = sortedY.last else { return 0...0 }
 		let extendBy: CGFloat = 10
 		return (minY - extendBy)...(maxY + extendBy)
 	}
-	
+
+	/// Function that returns a range of CGFloat specifying the range of acceptable horizontal positionings
 	func xTolarance() -> ClosedRange<CGFloat> {
-		let sortedX: [CGFloat] = self.map({ $0.rect.midX }).sorted()
+		let sortedX: [CGFloat] = self.map { $0.rect.midX }.sorted()
 		guard let minX: CGFloat = sortedX.first else { return 0...0 }
 		guard let maxX: CGFloat = sortedX.last else { return 0...0 }
 		let extendBy: CGFloat = 300
 		return (minX - extendBy)...(maxX + extendBy)
 	}
-	
+
+	/// Function that groups captured text by line
 	func grouped() -> [[CapturedText]] {
 		var groups: [[CapturedText]] = []
 		// For each piece of text
 		for capturedText in self {
 			// Declare flag
-			var groupFound: Bool = false
+			var groupFound = false
 			// Check against each group
 			for index in groups.indices {
 				// If in range

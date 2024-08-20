@@ -11,11 +11,14 @@ import KeyboardShortcuts
 
 struct GeneralSettingsView: View {
 	
+	@AppStorage("shouldAutoDismiss") private var shouldAutoDismiss: Bool = false
+	
 	var body: some View {
 		Form {
 			VStack(alignment: .leading) {
-				launch
 				shortcut
+				launch
+				dismiss
 			}
 		}
 		.padding()
@@ -50,6 +53,23 @@ struct GeneralSettingsView: View {
 				}
 				Spacer()
 				KeyboardShortcuts.Recorder("", name: .showAnnotations)
+			}
+		}
+	}
+	
+	var dismiss: some View {
+		Group {
+			HStack {
+				VStack(alignment: .leading) {
+					Text("Auto Dismiss Text")
+						.font(.title3)
+						.bold()
+					Text("Controls whether text annotations are dismissed after 10 seconds.")
+						.font(.caption)
+				}
+				Spacer()
+				Toggle("", isOn: $shouldAutoDismiss)
+					.toggleStyle(.switch)
 			}
 		}
 	}

@@ -20,6 +20,7 @@ struct OverlayExitButton: View {
 				.foregroundStyle(Color.secondary)
 		}
 		.buttonStyle(PlainButtonStyle())
+		.keyboardShortcut(.escape)
 		.scaleEffect(isHovering ? 1.1 : 1.0)
 		.onHover { isHovering in
 			withAnimation(.linear(duration: 0.2)) {

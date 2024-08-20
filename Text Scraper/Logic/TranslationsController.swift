@@ -18,6 +18,9 @@ public class AnnotationsController {
 	private var screens: [NSScreen] {
 		return NSScreen.screens
 	}
+	
+	/// Property containing timer that dismisses annotations
+	private var timer: Timer? = nil
 
 	/// Function to show annotation windows
 	public func showAnnotationWindows() {
@@ -46,7 +49,8 @@ public class AnnotationsController {
 			)
 			windows.append(window)
 		}
-		print("Displayed windows")
+		// Set timer if needed
+		self.setAutoDismissIfNeeded()
 	}
 
 	/// Function to dismiss annotation windows
@@ -57,6 +61,31 @@ public class AnnotationsController {
 		}
 		// Purge array
 		windows.removeAll()
-		print("Dismissed windows")
+		// Purge timer
+		self.removeAutoDismiss()
+	}
+	
+	/// Function to set or extend time before window is dissmissed
+	public func setAutoDismissIfNeeded() {
+		// Clear timer
+		self.removeAutoDismiss()
+		// Set timer if needed
+		let shouldAutoDismiss: Bool = UserDefaults.standard.bool(forKey: "shouldAutoDismiss")
+		if shouldAutoDismiss {
+			self.timer = Timer.scheduledTimer(
+				withTimeInterval: 10,
+				repeats: false
+			) { _ in
+				self.dismissAnnotationWindows()
+			}
+		}
+	}
+	
+	/// Function to remove auto dismiss
+	public func removeAutoDismiss() {
+		if self.timer != nil {
+			self.timer!.invalidate()
+			self.timer = nil
+		}
 	}
 }

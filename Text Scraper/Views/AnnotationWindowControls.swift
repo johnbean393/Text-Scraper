@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AnnotationWindowControls: View {
+	
     var body: some View {
 		HStack {
 			OverlayExitButton()
@@ -16,7 +17,10 @@ struct AnnotationWindowControls: View {
 		.padding(5)
 		.background {
 			Capsule()
-				.stroke(Color.secondary, lineWidth: 5)
+				.stroke(
+					Color.secondary,
+					lineWidth: 5
+				)
 				.fill(
 					Color(
 						nsColor: NSColor.windowBackgroundColor
@@ -25,6 +29,7 @@ struct AnnotationWindowControls: View {
 		}
 		.padding()
     }
+	
 }
 
 #Preview {
