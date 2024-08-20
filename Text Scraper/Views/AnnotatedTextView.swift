@@ -68,30 +68,31 @@ struct AnnotatedTextView: View {
 	}
 
 	var textOverlay: some View {
-		RoundedRectangle(
-			cornerRadius: capturedText.rect.height * 0.20
-		)
-		.glow(
-			fill: borderStyle,
-			lineWidth: gradientWidth,
-			blurRadius: gradientWidth
-		)
-		.background {
-			capturedText.backgroundColor
-				.clipShape(
-					RoundedRectangle(
-						cornerRadius: capturedText.rect.height * 0.20
-					)
-				)
-		}
-		.frame(
-			minWidth: minWidth,
-			maxWidth: capturedText.rect.width - 1.5,
-			minHeight: minHeight,
-			maxHeight: capturedText.rect.height - 1.5
-		)
-		.overlay(alignment: .center) {
-			text
+		ZStack {
+			RoundedRectangle(
+				cornerRadius: capturedText.rect.height * 0.20
+			)
+			.foregroundStyle(borderStyle)
+			.frame(
+				minWidth: minWidth + gradientWidth * 2,
+				maxWidth: capturedText.rect.width + gradientWidth * 2,
+				minHeight: minHeight + gradientWidth * 2,
+				maxHeight: capturedText.rect.height + gradientWidth * 2
+			)
+			.blur(radius: gradientWidth)
+			RoundedRectangle(
+				cornerRadius: capturedText.rect.height * 0.20
+			)
+			.fill(capturedText.backgroundColor)
+			.frame(
+				minWidth: minWidth,
+				maxWidth: capturedText.rect.width,
+				minHeight: minHeight,
+				maxHeight: capturedText.rect.height
+			)
+			.overlay {
+				text
+			}
 		}
 		.contextMenu {
 			copyButton
