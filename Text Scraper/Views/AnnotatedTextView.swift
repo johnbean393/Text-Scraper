@@ -126,11 +126,12 @@ struct AnnotatedTextView: View {
 			)
 			.foregroundStyle(borderStyle)
 			.frame(
-				minWidth: minWidth + 2,
-				maxWidth: capturedText.rect.width + 2,
-				minHeight: minHeight + 2,
-				maxHeight: capturedText.rect.height + 2
+				minWidth: minWidth + gradientWidth * 2,
+				maxWidth: capturedText.rect.width + gradientWidth * 2,
+				minHeight: minHeight + gradientWidth * 2,
+				maxHeight: capturedText.rect.height + gradientWidth * 2
 			)
+			.blur(radius: gradientWidth)
 			Group {
 				if capturedText.cgImage != nil {
 					Image(
