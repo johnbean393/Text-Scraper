@@ -25,6 +25,9 @@ struct ContentView: View {
 	/// Property denoting whether to show actions sheet
 	@State private var showActionsSheet: Bool = false
 	
+	/// Property denoting whether to show actions sheet ever
+	@AppStorage("confirmBeforeCopying") private var confirmBeforeCopying: Bool = false
+	
 	/// Property holding an NSScreen object
 	var nsScreen: NSScreen
 	
@@ -90,7 +93,18 @@ struct ContentView: View {
 					self.selectedTexts = textCapturer.capturedTexts.filter({
 						CGRectContainsRect(selectionRect, $0.rect)
 					})
-					self.showActionsSheet = true
+					// Show sheet if wanted
+					if confirmBeforeCopying {
+						self.showActionsSheet = true
+					} else {
+						// Copy directly
+						let text: String = SelectionSheetView.joinSelectedTexts(
+							selectedTexts: selectedTexts
+						)
+						text.copy(showPopup: true)
+						// Dismiss window
+						AppDelegate.shared.dismissAnnotationWindows()
+					}
 				}
 				// Reset
 				self.selectionRect = .zero

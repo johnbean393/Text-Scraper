@@ -12,6 +12,7 @@ import KeyboardShortcuts
 struct GeneralSettingsView: View {
 	
 	@AppStorage("shouldAutoDismiss") private var shouldAutoDismiss: Bool = false
+	@AppStorage("confirmBeforeCopying") private var confirmBeforeCopying: Bool = false
 	
 	var body: some View {
 		Form {
@@ -69,6 +70,23 @@ struct GeneralSettingsView: View {
 				}
 				Spacer()
 				Toggle("", isOn: $shouldAutoDismiss)
+					.toggleStyle(.switch)
+			}
+		}
+	}
+	
+	var showCopySheet: some View {
+		Group {
+			HStack {
+				VStack(alignment: .leading) {
+					Text("Confirm Before Copying")
+						.font(.title3)
+						.bold()
+					Text("Controls whether a prompt is shown before copying text.")
+						.font(.caption)
+				}
+				Spacer()
+				Toggle("", isOn: $confirmBeforeCopying)
 					.toggleStyle(.switch)
 			}
 		}

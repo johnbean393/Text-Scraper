@@ -25,7 +25,7 @@ extension Array where Element == CapturedText {
 		let sortedY: [CGFloat] = self.map { $0.rect.midY }.sorted()
 		guard let minY: CGFloat = sortedY.first else { return 0...0 }
 		guard let maxY: CGFloat = sortedY.last else { return 0...0 }
-		let extendBy: CGFloat = 10
+		let extendBy: CGFloat = 5
 		return (minY - extendBy)...(maxY + extendBy)
 	}
 

@@ -51,28 +51,31 @@ public struct CapturedText: Identifiable, Equatable {
 		}
 		// For color
 		let cropRectColor: CGRect = CGRect(
-			x: min(unscaledRect.minX * screen.realFrame.width - 4, 0),
+			x: min(unscaledRect.minX * screen.realFrame.width - 5, 0),
 			y: min(
-				(1 - unscaledRect.minY - unscaledRect.height) * screen.realFrame.height - 4,
+				(1 - unscaledRect.minY - unscaledRect.height) * screen.realFrame.height - 5,
 				0
 			),
-			width: unscaledRect.width * screen.realFrame.width + 8,
-			height: unscaledRect.height * screen.realFrame.height + 8
+			width: unscaledRect.width * screen.realFrame.width + 10,
+			height: unscaledRect.height * screen.realFrame.height + 10
 		)
 		if let croppedImage: CGImage = cgImage.cropping(
 			to: cropRectColor
 		) {
-			if let dominantColor: CGColor = try? DominantColors
-				.dominantColors(
+			if let dominantColor: CGColor = try? DominantColors.dominantColors(
 					image: croppedImage,
-					quality: .best
-				)
-					.first {
+					quality: .best,
+					algorithm: .CIE76,
+					options: [],
+					sorting: .frequency
+				).first {
 				self.backgroundColor = Color(
 					cgColor: dominantColor
 				)
 				// Exit init
 				return
+			} else {
+				print("Failed to identify dominant color")
 			}
 		} else {
 			print("Failed to crop image")

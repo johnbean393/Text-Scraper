@@ -1,6 +1,15 @@
 {
-  "originHash" : "2f366ded96206fa24c24031f1c87a367ee49eae0e3361e1a7d108532373d7700",
+  "originHash" : "9cf9f51ef6727c09aa9dbfbafd8eb5ff4a3ada5e6b03200c94beb83dc1189ba4",
   "pins" : [
+    {
+      "identity" : "bezelnotification",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Yalir/BezelNotification.git",
+      "state" : {
+        "revision" : "68876d0e8c0ad09e0a1be8e7124b4f6c738df2c9",
+        "version" : "1.1.0"
+      }
+    },
     {
       "identity" : "dominantcolors",
       "kind" : "remoteSourceControl",

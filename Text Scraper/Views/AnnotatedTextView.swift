@@ -20,9 +20,9 @@ struct AnnotatedTextView: View {
 		self._selectionRect = selectionRect
 		self.minHeight = minHeight
 		self.minWidth = minWidth
-		let startAngle: Angle = .degrees(Double.random(in: 0...360))
+		let startAngle: Angle = .degrees(Double.random(in: 0 ... 360))
 		self.startAngle = startAngle
-		self.borderStyle = Self.getGradient(angle: startAngle)
+		self.borderStyle = startAngle.getGradient()
 	}
 
 	/// Property denoting the border style's start angle
@@ -33,7 +33,7 @@ struct AnnotatedTextView: View {
 	@State private var showAccentColor: Bool = false
 	/// State property denoting whether text overlay is shown
 	@State private var showTextOverlay: Bool = false
-	
+
 	/// State property denoting the border style
 	@State private var borderStyle: AngularGradient
 
@@ -67,23 +67,27 @@ struct AnnotatedTextView: View {
 		.onAppear(perform: animateAppear)
 	}
 
+	var background: some View {
+		RoundedRectangle(
+			cornerRadius: capturedText.rect.height * 0.20
+		)
+		.foregroundStyle(borderStyle)
+		.frame(
+			minWidth: minWidth + gradientWidth * 2,
+			maxWidth: capturedText.rect.width + gradientWidth * 2,
+			minHeight: minHeight + gradientWidth * 2,
+			maxHeight: capturedText.rect.height + gradientWidth * 2
+		)
+		.blur(radius: inSelection ? 0 : gradientWidth)
+	}
+
 	var textOverlay: some View {
 		ZStack {
+			background
 			RoundedRectangle(
 				cornerRadius: capturedText.rect.height * 0.20
 			)
-			.foregroundStyle(borderStyle)
-			.frame(
-				minWidth: minWidth + gradientWidth * 2,
-				maxWidth: capturedText.rect.width + gradientWidth * 2,
-				minHeight: minHeight + gradientWidth * 2,
-				maxHeight: capturedText.rect.height + gradientWidth * 2
-			)
-			.blur(radius: gradientWidth)
-			RoundedRectangle(
-				cornerRadius: capturedText.rect.height * 0.20
-			)
-			.fill(capturedText.backgroundColor)
+			.foregroundStyle(capturedText.backgroundColor)
 			.frame(
 				minWidth: minWidth,
 				maxWidth: capturedText.rect.width,
@@ -91,48 +95,20 @@ struct AnnotatedTextView: View {
 				maxHeight: capturedText.rect.height
 			)
 			.overlay {
-				text
+				TextOverlayView(
+					capturedText: capturedText,
+					showTextOverlay: $showTextOverlay
+				)
 			}
 		}
 		.contextMenu {
-			copyButton
+			CopyButton(text: capturedText.text)
 		}
-	}
-
-	var copyButton: some View {
-		Button {
-			let pasteboard = NSPasteboard.general
-			pasteboard.declareTypes([.string], owner: nil)
-			pasteboard.setString(capturedText.text, forType: .string)
-		} label: {
-			Label("Copy", systemImage: "document.on.document")
-		}
-	}
-
-	var text: some View {
-		Text(capturedText.text)
-			.foregroundStyle(capturedText.backgroundColor.adaptedTextColor)
-			.font(.largeTitle)
-			.scaledToFit()
-			.minimumScaleFactor(0.2)
-			.lineLimit(1)
-			.textSelection(.enabled)
-			.opacity(showTextOverlay ? 1.0 : 0.0)
 	}
 
 	var assistiveReadImage: some View {
 		ZStack {
-			RoundedRectangle(
-				cornerRadius: capturedText.rect.height * 0.20
-			)
-			.foregroundStyle(borderStyle)
-			.frame(
-				minWidth: minWidth + gradientWidth * 2,
-				maxWidth: capturedText.rect.width + gradientWidth * 2,
-				minHeight: minHeight + gradientWidth * 2,
-				maxHeight: capturedText.rect.height + gradientWidth * 2
-			)
-			.blur(radius: gradientWidth)
+			background
 			Group {
 				if capturedText.cgImage != nil {
 					Image(
@@ -166,9 +142,7 @@ struct AnnotatedTextView: View {
 		withAnimation(.easeOut(duration: phase1)) {
 			gradientWidth = 5
 			showTextOverlay = true
-			borderStyle = Self.getGradient(
-				angle: Angle(degrees: startAngle.degrees + 240)
-			)
+			borderStyle = Angle(degrees: startAngle.degrees + 240).getGradient()
 		}
 		DispatchQueue.main.asyncAfter(deadline: .now() + phase1) {
 			withAnimation(.easeIn(duration: phase2)) {
@@ -181,23 +155,6 @@ struct AnnotatedTextView: View {
 			}
 		}
 	}
-	
-	private static func getGradient(angle: Angle) -> AngularGradient {
-		return AngularGradient(
-			stops: [
-				.init(color: .white, location: 0.0),
-				.init(color: .cyan, location: 0.2),
-				.init(color: .blue, location: 0.3),
-				.init(color: .purple, location: 0.4),
-				.init(color: .pink, location: 0.6),
-				.init(color: .yellow, location: 0.8),
-				.init(color: .white, location: 1.0),
-			],
-			center: .center,
-			angle: angle
-		)
-	}
-	
 }
 
 // #Preview {

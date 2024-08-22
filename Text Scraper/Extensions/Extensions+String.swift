@@ -8,6 +8,7 @@
 import Foundation
 import AppKit
 import ExtensionKit
+import BezelNotification
 
 public extension String {
 	
@@ -57,6 +58,20 @@ public extension String {
 		}
 		// Return result
 		return Locale.Language(identifier: langId)
+	}
+	
+	/// Function to copy the string to the clipboard
+	func copy(showPopup: Bool = false) {
+		let pasteboard = NSPasteboard.general
+		pasteboard.declareTypes([.string], owner: nil)
+		pasteboard.setString(self, forType: .string)
+		if showPopup {
+			let notification = BezelNotification(
+				text: "Copied to clipboard",
+				visibleTime: 1.0
+			)
+			notification.show()
+		}
 	}
 	
 }

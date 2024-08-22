@@ -25,12 +25,11 @@ struct SelectionSheetView: View {
 	
 	var joinAndCopyButton: some View {
 		Button {
-			let pasteboard = NSPasteboard.general
-			pasteboard.declareTypes([.string], owner: nil)
-			pasteboard.setString(
-				self.joinSelectedTexts(),
-				forType: .string
-			)
+			// Copy
+			Self.joinSelectedTexts(
+				selectedTexts: self.selectedTexts
+			).copy()
+			// Dismiss
 			isPresented = false
 			AppDelegate.shared.dismissAnnotationWindows()
 		} label: {
@@ -63,7 +62,9 @@ struct SelectionSheetView: View {
 		}
 	}
 	
-	private func joinSelectedTexts() -> String {
+	public static func joinSelectedTexts(
+		selectedTexts: [CapturedText]
+	) -> String {
 		let groupedTexts: [[CapturedText]] = selectedTexts.grouped()
 		let lines: [String] = groupedTexts.map {
 			$0.map { $0.text }.joined(separator: "    ")

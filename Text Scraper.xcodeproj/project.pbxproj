@@ -11,6 +11,7 @@
 		20472FA22C63D60200D58B4C /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 20472FA12C63D60200D58B4C /* LaunchAtLogin */; };
 		209044972C642CE700F47B29 /* ExtensionKit in Frameworks */ = {isa = PBXBuildFile; productRef = 209044962C642CE700F47B29 /* ExtensionKit */; };
 		209044A02C649DAE00F47B29 /* DominantColors in Frameworks */ = {isa = PBXBuildFile; productRef = 2090449F2C649DAE00F47B29 /* DominantColors */; };
+		20988B1A2C772CAA0082B684 /* BezelNotification in Frameworks */ = {isa = PBXBuildFile; productRef = 20988B192C772CAA0082B684 /* BezelNotification */; };
 		2098BB152C65871C00B0222F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2098BB142C65871C00B0222F /* README.md */; };
 		2098BBC52C658AE600B0222F /* demoScreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 2098BBC42C658AE600B0222F /* demoScreenshot.png */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 			files = (
 				20472FA22C63D60200D58B4C /* LaunchAtLogin in Frameworks */,
 				20472F9F2C63D5C600D58B4C /* KeyboardShortcuts in Frameworks */,
+				20988B1A2C772CAA0082B684 /* BezelNotification in Frameworks */,
 				209044A02C649DAE00F47B29 /* DominantColors in Frameworks */,
 				209044972C642CE700F47B29 /* ExtensionKit in Frameworks */,
 			);
@@ -92,6 +94,7 @@
 				20472FA12C63D60200D58B4C /* LaunchAtLogin */,
 				209044962C642CE700F47B29 /* ExtensionKit */,
 				2090449F2C649DAE00F47B29 /* DominantColors */,
+				20988B192C772CAA0082B684 /* BezelNotification */,
 			);
 			productName = Translator;
 			productReference = 20472F852C63CDE700D58B4C /* Text Scraper.app */;
@@ -126,6 +129,7 @@
 				20472FA02C63D60200D58B4C /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
 				209044952C642CE700F47B29 /* XCRemoteSwiftPackageReference "ExtensionKit" */,
 				2090449E2C649DAE00F47B29 /* XCRemoteSwiftPackageReference "DominantColors" */,
+				20988B182C772CAA0082B684 /* XCRemoteSwiftPackageReference "BezelNotification" */,
 			);
 			productRefGroup = 20472F862C63CDE700D58B4C /* Products */;
 			projectDirPath = "";
@@ -396,6 +400,14 @@
 				minimumVersion = 1.2.0;
 			};
 		};
+		20988B182C772CAA0082B684 /* XCRemoteSwiftPackageReference "BezelNotification" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Yalir/BezelNotification.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -418,6 +430,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2090449E2C649DAE00F47B29 /* XCRemoteSwiftPackageReference "DominantColors" */;
 			productName = DominantColors;
+		};
+		20988B192C772CAA0082B684 /* BezelNotification */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20988B182C772CAA0082B684 /* XCRemoteSwiftPackageReference "BezelNotification" */;
+			productName = BezelNotification;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
