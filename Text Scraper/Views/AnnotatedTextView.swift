@@ -49,7 +49,7 @@ struct AnnotatedTextView: View {
 	var minWidth: CGFloat
 
 	var inSelection: Bool {
-		return CGRectContainsRect(selectionRect, capturedText.rect)
+		return CGRectIntersectsRect(selectionRect, capturedText.rect)
 	}
 
 	var body: some View {

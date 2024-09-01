@@ -88,10 +88,10 @@ struct ContentView: View {
 				// Show sheet if applicable
 				// Check that elements were selected
 				if textCapturer.capturedTexts.map({
-					CGRectContainsRect( selectionRect, $0.rect)
+					CGRectIntersectsRect(selectionRect, $0.rect)
 				}).contains(true) {
 					self.selectedTexts = textCapturer.capturedTexts.filter({
-						CGRectContainsRect(selectionRect, $0.rect)
+						CGRectIntersectsRect(selectionRect, $0.rect)
 					})
 					// Show sheet if wanted
 					if confirmBeforeCopying {
