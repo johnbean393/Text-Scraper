@@ -123,8 +123,8 @@ struct ContentView: View {
 				let x: CGFloat = self.prevControlsPosition.x + proxy.translation.width
 				let y: CGFloat = self.prevControlsPosition.y + proxy.translation.height
 				self.controlsPosition = CGPoint(
-					x: max(x, 0),
-					y: max(y, 0)
+					x: min(max(x, 0), nsScreen.frame.width - 50),
+					y: min(max(y, 0), nsScreen.frame.height - 50)
 				)
 			}
 			.onEnded { proxy in
