@@ -36,8 +36,12 @@ struct ContentView: View {
 		return nsScreen.frame.size
 	}
 	
-	/// Computed property that returns all selected texts
+	/// Property denoting all selected texts
 	@State private var selectedTexts: [CapturedText] = []
+	
+	/// Property denoting position of controls
+	@State private var prevControlsPosition: CGPoint = .zero
+	@State private var controlsPosition: CGPoint = .zero
 	
 	var body: some View {
 		AnnotationWindowContent(selectionRect: $selectionRect)
@@ -45,15 +49,17 @@ struct ContentView: View {
 			.task {
 				await textCapturer.updateCapturedTexts()
 			}
+			.gesture(selectionDragGesture)
 			.overlay(alignment: .topLeading) {
 				AnnotationWindowControls()
+					.offset(x: controlsPosition.x, y: controlsPosition.y)
+					.simultaneousGesture(controlsDragGesture)
 			}
 			.overlay(alignment: .topLeading) {
 				SelectionIndicatorView(
 					selectionRect: selectionRect
 				)
 			}
-			.gesture(dragGesture)
 			.sheet(isPresented: $showActionsSheet) {
 				SelectionSheetView(
 					isPresented: $showActionsSheet,
@@ -73,7 +79,7 @@ struct ContentView: View {
 			.environmentObject(textCapturer)
 	}
 	
-	var dragGesture: some Gesture {
+	var selectionDragGesture: some Gesture {
 		DragGesture()
 			.onChanged { proxy in
 				// Reset selection
@@ -108,6 +114,21 @@ struct ContentView: View {
 				}
 				// Reset
 				self.selectionRect = .zero
+			}
+	}
+	
+	var controlsDragGesture: some Gesture {
+		DragGesture()
+			.onChanged { proxy in
+				let x: CGFloat = self.prevControlsPosition.x + proxy.translation.width
+				let y: CGFloat = self.prevControlsPosition.y + proxy.translation.height
+				self.controlsPosition = CGPoint(
+					x: max(x, 0),
+					y: max(y, 0)
+				)
+			}
+			.onEnded { proxy in
+				self.prevControlsPosition = self.controlsPosition
 			}
 	}
 	
