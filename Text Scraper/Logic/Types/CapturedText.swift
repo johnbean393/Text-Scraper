@@ -34,8 +34,7 @@ public struct CapturedText: Identifiable, Equatable {
 			height: unscaledRect.height * screen.frame.height
 		)
 		self.rect = scaledRect
-		// Crop image to 2 rects, then find dominant color from larger one
-		// For image
+		// Crop for image
 		let cropRectImage: CGRect = CGRect(
 			x: unscaledRect.minX * screen.realFrame.width,
 			y: (1 - unscaledRect.minY - unscaledRect.height) * screen.realFrame.height,
@@ -49,33 +48,32 @@ public struct CapturedText: Identifiable, Equatable {
 		} else {
 			print("Failed to crop image")
 		}
-		// For color
+		// Crop for color
 		let cropRectColor: CGRect = CGRect(
-			x: min(unscaledRect.minX * screen.realFrame.width - 5, 0),
-			y: min(
-				(1 - unscaledRect.minY - unscaledRect.height) * screen.realFrame.height - 5,
-				0
-			),
-			width: unscaledRect.width * screen.realFrame.width + 10,
-			height: unscaledRect.height * screen.realFrame.height + 10
+			x: unscaledRect.minX * screen.realFrame.width,
+			y: (1 - unscaledRect.minY - unscaledRect.height) * screen.realFrame.height,
+			width: unscaledRect.width * screen.realFrame.width,
+			height: unscaledRect.height * screen.realFrame.height
 		)
 		if let croppedImage: CGImage = cgImage.cropping(
 			to: cropRectColor
 		) {
-			if let dominantColor: CGColor = try? DominantColors.dominantColors(
-					image: croppedImage,
-					quality: .best,
-					algorithm: .CIE76,
-					options: [],
-					sorting: .frequency
-				).first {
-				self.backgroundColor = Color(
-					cgColor: dominantColor
-				)
-				// Exit init
+			// Get colors from all 4 corners
+			let points: [NSPoint] = [
+				NSPoint(x: 0, y: 0),
+				NSPoint(x: cropRectColor.width , y: 0),
+				NSPoint(x: cropRectColor.width, y: cropRectColor.height),
+				NSPoint(x: 0, y: cropRectColor.height)
+			]
+			let colorsAtPoints: [Color] = points.map { point in
+				croppedImage.getPixelColor(at: point)
+			}
+			if colorsAtPoints.mode != nil {
+				self.backgroundColor = colorsAtPoints.mode!
 				return
-			} else {
-				print("Failed to identify dominant color")
+			} else if colorsAtPoints.count > 0 {
+				self.backgroundColor = colorsAtPoints.first!
+				return
 			}
 		} else {
 			print("Failed to crop image")

@@ -3,10 +3,41 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20382A862C9976580020F095 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20382A712C9976580020F095 /* Preview Assets.xcassets */; };
+		20382A872C9976580020F095 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20382A812C9976580020F095 /* Assets.xcassets */; };
+		20382A892C9976580020F095 /* Extension+Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A602C9976580020F095 /* Extension+Angle.swift */; };
+		20382A8A2C9976580020F095 /* Extension+KeyboardShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A612C9976580020F095 /* Extension+KeyboardShortcut.swift */; };
+		20382A8B2C9976580020F095 /* Extension+CGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A622C9976580020F095 /* Extension+CGImage.swift */; };
+		20382A8C2C9976580020F095 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A632C9976580020F095 /* Extension+View.swift */; };
+		20382A8D2C9976580020F095 /* Extensions+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A642C9976580020F095 /* Extensions+Array.swift */; };
+		20382A8E2C9976580020F095 /* Extensions+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A652C9976580020F095 /* Extensions+Color.swift */; };
+		20382A8F2C9976580020F095 /* Extensions+NSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A662C9976580020F095 /* Extensions+NSScreen.swift */; };
+		20382A902C9976580020F095 /* Extensions+NSWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A672C9976580020F095 /* Extensions+NSWindow.swift */; };
+		20382A912C9976580020F095 /* Extensions+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A682C9976580020F095 /* Extensions+String.swift */; };
+		20382A922C9976580020F095 /* CapturedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A6A2C9976580020F095 /* CapturedText.swift */; };
+		20382A932C9976580020F095 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A6C2C9976580020F095 /* AppDelegate.swift */; };
+		20382A942C9976580020F095 /* ShortcutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A6D2C9976580020F095 /* ShortcutController.swift */; };
+		20382A952C9976580020F095 /* TextCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A6E2C9976580020F095 /* TextCapturer.swift */; };
+		20382A962C9976580020F095 /* TranslationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A6F2C9976580020F095 /* TranslationsController.swift */; };
+		20382A972C9976580020F095 /* AnnotatedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A732C9976580020F095 /* AnnotatedTextView.swift */; };
+		20382A982C9976580020F095 /* AnnotationWindowContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A742C9976580020F095 /* AnnotationWindowContent.swift */; };
+		20382A992C9976580020F095 /* AnnotationWindowControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A752C9976580020F095 /* AnnotationWindowControls.swift */; };
+		20382A9A2C9976580020F095 /* AssistiveReadToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A762C9976580020F095 /* AssistiveReadToggle.swift */; };
+		20382A9B2C9976580020F095 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A772C9976580020F095 /* ContentView.swift */; };
+		20382A9C2C9976580020F095 /* CopyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A782C9976580020F095 /* CopyButton.swift */; };
+		20382A9D2C9976580020F095 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A792C9976580020F095 /* GeneralSettingsView.swift */; };
+		20382A9E2C9976580020F095 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A7A2C9976580020F095 /* MenuBarView.swift */; };
+		20382A9F2C9976580020F095 /* OverlayExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A7B2C9976580020F095 /* OverlayExitButton.swift */; };
+		20382AA02C9976580020F095 /* SelectionIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A7C2C9976580020F095 /* SelectionIndicatorView.swift */; };
+		20382AA12C9976580020F095 /* SelectionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A7D2C9976580020F095 /* SelectionSheetView.swift */; };
+		20382AA22C9976580020F095 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A7E2C9976580020F095 /* SettingsView.swift */; };
+		20382AA32C9976580020F095 /* TextOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A7F2C9976580020F095 /* TextOverlayView.swift */; };
+		20382AA42C9976580020F095 /* Text_ScraperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382A842C9976580020F095 /* Text_ScraperApp.swift */; };
+		20382AA62C9979200020F095 /* Extension+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20382AA52C9979200020F095 /* Extension+Array.swift */; };
 		20472F9F2C63D5C600D58B4C /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 20472F9E2C63D5C600D58B4C /* KeyboardShortcuts */; };
 		20472FA22C63D60200D58B4C /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 20472FA12C63D60200D58B4C /* LaunchAtLogin */; };
 		209044972C642CE700F47B29 /* ExtensionKit in Frameworks */ = {isa = PBXBuildFile; productRef = 209044962C642CE700F47B29 /* ExtensionKit */; };
@@ -17,24 +48,43 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20382A602C9976580020F095 /* Extension+Angle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Angle.swift"; sourceTree = "<group>"; };
+		20382A612C9976580020F095 /* Extension+KeyboardShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+KeyboardShortcut.swift"; sourceTree = "<group>"; };
+		20382A622C9976580020F095 /* Extension+CGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CGImage.swift"; sourceTree = "<group>"; };
+		20382A632C9976580020F095 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
+		20382A642C9976580020F095 /* Extensions+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Array.swift"; sourceTree = "<group>"; };
+		20382A652C9976580020F095 /* Extensions+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Color.swift"; sourceTree = "<group>"; };
+		20382A662C9976580020F095 /* Extensions+NSScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+NSScreen.swift"; sourceTree = "<group>"; };
+		20382A672C9976580020F095 /* Extensions+NSWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+NSWindow.swift"; sourceTree = "<group>"; };
+		20382A682C9976580020F095 /* Extensions+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+String.swift"; sourceTree = "<group>"; };
+		20382A6A2C9976580020F095 /* CapturedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturedText.swift; sourceTree = "<group>"; };
+		20382A6C2C9976580020F095 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		20382A6D2C9976580020F095 /* ShortcutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutController.swift; sourceTree = "<group>"; };
+		20382A6E2C9976580020F095 /* TextCapturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCapturer.swift; sourceTree = "<group>"; };
+		20382A6F2C9976580020F095 /* TranslationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationsController.swift; sourceTree = "<group>"; };
+		20382A712C9976580020F095 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		20382A732C9976580020F095 /* AnnotatedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotatedTextView.swift; sourceTree = "<group>"; };
+		20382A742C9976580020F095 /* AnnotationWindowContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationWindowContent.swift; sourceTree = "<group>"; };
+		20382A752C9976580020F095 /* AnnotationWindowControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationWindowControls.swift; sourceTree = "<group>"; };
+		20382A762C9976580020F095 /* AssistiveReadToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistiveReadToggle.swift; sourceTree = "<group>"; };
+		20382A772C9976580020F095 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		20382A782C9976580020F095 /* CopyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyButton.swift; sourceTree = "<group>"; };
+		20382A792C9976580020F095 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
+		20382A7A2C9976580020F095 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		20382A7B2C9976580020F095 /* OverlayExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayExitButton.swift; sourceTree = "<group>"; };
+		20382A7C2C9976580020F095 /* SelectionIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionIndicatorView.swift; sourceTree = "<group>"; };
+		20382A7D2C9976580020F095 /* SelectionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionSheetView.swift; sourceTree = "<group>"; };
+		20382A7E2C9976580020F095 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		20382A7F2C9976580020F095 /* TextOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOverlayView.swift; sourceTree = "<group>"; };
+		20382A812C9976580020F095 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		20382A822C9976580020F095 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20382A832C9976580020F095 /* Text_Scraper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Text_Scraper.entitlements; sourceTree = "<group>"; };
+		20382A842C9976580020F095 /* Text_ScraperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text_ScraperApp.swift; sourceTree = "<group>"; };
+		20382AA52C9979200020F095 /* Extension+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Array.swift"; sourceTree = "<group>"; };
 		20472F852C63CDE700D58B4C /* Text Scraper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Text Scraper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2098BB142C65871C00B0222F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2098BBC42C658AE600B0222F /* demoScreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demoScreenshot.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		20472F9C2C63D17300D58B4C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 20472F842C63CDE700D58B4C /* Text Scraper */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		20472F872C63CDE700D58B4C /* Text Scraper */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (20472F9C2C63D17300D58B4C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Text Scraper"; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		20472F822C63CDE700D58B4C /* Frameworks */ = {
@@ -52,12 +102,92 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20382A692C9976580020F095 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				20382A602C9976580020F095 /* Extension+Angle.swift */,
+				20382A612C9976580020F095 /* Extension+KeyboardShortcut.swift */,
+				20382A622C9976580020F095 /* Extension+CGImage.swift */,
+				20382A632C9976580020F095 /* Extension+View.swift */,
+				20382A642C9976580020F095 /* Extensions+Array.swift */,
+				20382A652C9976580020F095 /* Extensions+Color.swift */,
+				20382A662C9976580020F095 /* Extensions+NSScreen.swift */,
+				20382A672C9976580020F095 /* Extensions+NSWindow.swift */,
+				20382A682C9976580020F095 /* Extensions+String.swift */,
+				20382AA52C9979200020F095 /* Extension+Array.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		20382A6B2C9976580020F095 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				20382A6A2C9976580020F095 /* CapturedText.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		20382A702C9976580020F095 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				20382A6B2C9976580020F095 /* Types */,
+				20382A6C2C9976580020F095 /* AppDelegate.swift */,
+				20382A6D2C9976580020F095 /* ShortcutController.swift */,
+				20382A6E2C9976580020F095 /* TextCapturer.swift */,
+				20382A6F2C9976580020F095 /* TranslationsController.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		20382A722C9976580020F095 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				20382A712C9976580020F095 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		20382A802C9976580020F095 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				20382A732C9976580020F095 /* AnnotatedTextView.swift */,
+				20382A742C9976580020F095 /* AnnotationWindowContent.swift */,
+				20382A752C9976580020F095 /* AnnotationWindowControls.swift */,
+				20382A762C9976580020F095 /* AssistiveReadToggle.swift */,
+				20382A772C9976580020F095 /* ContentView.swift */,
+				20382A782C9976580020F095 /* CopyButton.swift */,
+				20382A792C9976580020F095 /* GeneralSettingsView.swift */,
+				20382A7A2C9976580020F095 /* MenuBarView.swift */,
+				20382A7B2C9976580020F095 /* OverlayExitButton.swift */,
+				20382A7C2C9976580020F095 /* SelectionIndicatorView.swift */,
+				20382A7D2C9976580020F095 /* SelectionSheetView.swift */,
+				20382A7E2C9976580020F095 /* SettingsView.swift */,
+				20382A7F2C9976580020F095 /* TextOverlayView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		20382A852C9976580020F095 /* Text Scraper */ = {
+			isa = PBXGroup;
+			children = (
+				20382A692C9976580020F095 /* Extensions */,
+				20382A702C9976580020F095 /* Logic */,
+				20382A722C9976580020F095 /* Preview Content */,
+				20382A802C9976580020F095 /* Views */,
+				20382A812C9976580020F095 /* Assets.xcassets */,
+				20382A822C9976580020F095 /* Info.plist */,
+				20382A832C9976580020F095 /* Text_Scraper.entitlements */,
+				20382A842C9976580020F095 /* Text_ScraperApp.swift */,
+			);
+			path = "Text Scraper";
+			sourceTree = "<group>";
+		};
 		20472F7C2C63CDE700D58B4C = {
 			isa = PBXGroup;
 			children = (
 				2098BB142C65871C00B0222F /* README.md */,
 				2098BBC42C658AE600B0222F /* demoScreenshot.png */,
-				20472F872C63CDE700D58B4C /* Text Scraper */,
+				20382A852C9976580020F095 /* Text Scraper */,
 				20472F862C63CDE700D58B4C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,9 +214,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				20472F872C63CDE700D58B4C /* Text Scraper */,
 			);
 			name = "Text Scraper";
 			packageProductDependencies = (
@@ -146,6 +273,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2098BBC52C658AE600B0222F /* demoScreenshot.png in Resources */,
+				20382A862C9976580020F095 /* Preview Assets.xcassets in Resources */,
+				20382A872C9976580020F095 /* Assets.xcassets in Resources */,
 				2098BB152C65871C00B0222F /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,6 +286,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20382A892C9976580020F095 /* Extension+Angle.swift in Sources */,
+				20382A8A2C9976580020F095 /* Extension+KeyboardShortcut.swift in Sources */,
+				20382A8B2C9976580020F095 /* Extension+CGImage.swift in Sources */,
+				20382A8C2C9976580020F095 /* Extension+View.swift in Sources */,
+				20382A8D2C9976580020F095 /* Extensions+Array.swift in Sources */,
+				20382A8E2C9976580020F095 /* Extensions+Color.swift in Sources */,
+				20382A8F2C9976580020F095 /* Extensions+NSScreen.swift in Sources */,
+				20382A902C9976580020F095 /* Extensions+NSWindow.swift in Sources */,
+				20382A912C9976580020F095 /* Extensions+String.swift in Sources */,
+				20382A922C9976580020F095 /* CapturedText.swift in Sources */,
+				20382A932C9976580020F095 /* AppDelegate.swift in Sources */,
+				20382A942C9976580020F095 /* ShortcutController.swift in Sources */,
+				20382A952C9976580020F095 /* TextCapturer.swift in Sources */,
+				20382A962C9976580020F095 /* TranslationsController.swift in Sources */,
+				20382A972C9976580020F095 /* AnnotatedTextView.swift in Sources */,
+				20382A982C9976580020F095 /* AnnotationWindowContent.swift in Sources */,
+				20382A992C9976580020F095 /* AnnotationWindowControls.swift in Sources */,
+				20382A9A2C9976580020F095 /* AssistiveReadToggle.swift in Sources */,
+				20382A9B2C9976580020F095 /* ContentView.swift in Sources */,
+				20382A9C2C9976580020F095 /* CopyButton.swift in Sources */,
+				20382A9D2C9976580020F095 /* GeneralSettingsView.swift in Sources */,
+				20382A9E2C9976580020F095 /* MenuBarView.swift in Sources */,
+				20382A9F2C9976580020F095 /* OverlayExitButton.swift in Sources */,
+				20382AA02C9976580020F095 /* SelectionIndicatorView.swift in Sources */,
+				20382AA12C9976580020F095 /* SelectionSheetView.swift in Sources */,
+				20382AA22C9976580020F095 /* SettingsView.swift in Sources */,
+				20382AA32C9976580020F095 /* TextOverlayView.swift in Sources */,
+				20382AA62C9979200020F095 /* Extension+Array.swift in Sources */,
+				20382AA42C9976580020F095 /* Text_ScraperApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
