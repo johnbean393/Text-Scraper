@@ -2,7 +2,7 @@
 
 A macOS app that surfaces text on your displays and allow easy copying. Useful in apps and websites where text isn't copyable.
 
-![Screenshot](https://raw.githubusercontent.com/johnbean393/Text-Scraper/main/demoScreenshot.png)
+![Screenshot](https://raw.githubusercontent.com/johnbean393/Text-Scraper/refs/heads/main/demoScreenshot.png)
 
 - Use the shortcut (Cmd + Ctrl + C) to extract text!
 - Select and copy with auto groupings
