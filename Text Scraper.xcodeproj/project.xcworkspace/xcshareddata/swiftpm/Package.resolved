@@ -1,5 +1,5 @@
 {
-  "originHash" : "9cf9f51ef6727c09aa9dbfbafd8eb5ff4a3ada5e6b03200c94beb83dc1189ba4",
+  "originHash" : "3b67f3a8cfc04436fa2a366e8baea6d0003960518be2c3f32d0a78f3a43c85d4",
   "pins" : [
     {
       "identity" : "bezelnotification",
@@ -8,15 +8,6 @@
       "state" : {
         "revision" : "68876d0e8c0ad09e0a1be8e7124b4f6c738df2c9",
         "version" : "1.1.0"
-      }
-    },
-    {
-      "identity" : "dominantcolors",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/DenDmitriev/DominantColors",
-      "state" : {
-        "revision" : "38e28c1eda5de3d101e1bb2bf5ca737d6f66b5d7",
-        "version" : "1.2.0"
       }
     },
     {

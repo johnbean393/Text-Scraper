@@ -5,7 +5,6 @@
 //  Created by Bean John on 8/8/24.
 //
 
-import DominantColors
 import Foundation
 import SwiftUI
 import Vision
